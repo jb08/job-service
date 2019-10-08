@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url = 'http://repo.maven.apache.org/maven2'
+        }
+    }
+}
+
+rootProject.name = 'job-service'

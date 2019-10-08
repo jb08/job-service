@@ -1,0 +1,33 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+# Logging settings.
+logging:
+  level: INFO
+  appenders:
+    - type: console
+    - type: file
+      currentLogFilename: './logs/application.log'
+      archivedLogFilenamePattern: './logs/application-%d-%i.log.gz'
+      archive: true
+      archivedFileCount: 7
+      maxFileSize: '1mb'
+  loggers:
+    com.example.jobservice: DEBUG
+
+swagger:
+  resourcePackage: com.example.jobservice.controllers
+
+database:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/job-service
+  user: user
+  password: password
+  properties:
+    charSet: UTF-8
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
